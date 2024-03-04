@@ -13,5 +13,10 @@ router.get('/logout', auth.logout);
 
 router.get('/', auth.isAuthenticated, ctrl.home);
 router.post('/api/products', auth.isAuthenticated, ctrl.getProducts);
+router.post('/addToCart', auth.isAuthenticated, ctrl.addToCart);
+router.post('/updateCart', auth.isAuthenticated, ctrl.updateCart);
+router.get('/cart', auth.isAuthenticated, ctrl.viewCart);
+
+router.get('/api/cart', auth.isAuthenticated, ctrl.getCart);
 
 export default router;

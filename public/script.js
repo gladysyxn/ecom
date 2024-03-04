@@ -25,7 +25,12 @@ async function updateProducts() {
               <p>$${product.price}</p>
               <p>${product.stock} available</p>
               <p><img src="/images/${product.image}" height="200" " width="300"></p>
-              <button class="button">Add to Cart</button>
+              <form class="mt-3" action="/addToCart" method="POST">
+                <label for="quantity-${product.name}">Quantity:</label>
+                <input type="number" id="quantity-${product.name}" name="quantity" value="1" min="1" max="${product.stock}">
+                <input type="hidden" name="productId" value="${product._id}">
+                <button type="submit">Add to Cart</button>
+              </form>
 
         `;
         container.innerHTML += productElement;
@@ -38,5 +43,29 @@ async function updateProducts() {
   }
 }
 
-updateProducts();
+async function getCart() {
 
+try{
+  const response = await fetch('/api/cart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+      
+ if (response.ok) {
+      const cart = await response.json();
+      const link = document.getElementById('cart');
+      link.innerHTML = 'Cart (' + cart.totalQuantity + '):';
+     
+ }
+    
+    
+} catch (error) {
+    console.error('Fetch error:', error.message);
+  }
+}
+
+
+updateProducts();
+getCart();
