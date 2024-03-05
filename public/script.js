@@ -1,4 +1,8 @@
-document.getElementById('searchInput').addEventListener('input', updateProducts);
+// Dynamically link the CSS file
+const linkElement = document.createElement('link');
+linkElement.rel = 'stylesheet';
+linkElement.href = 'styles.css';
+document.head.appendChild(linkElement);
 
 //priceValue
 async function updateProducts() {
@@ -17,24 +21,56 @@ async function updateProducts() {
       const products = await response.json();
       const container = document.getElementById('productsList');
       container.innerHTML = '';
+        
+        let min = 0;
+        let max = 0;
+        
+        
       products.forEach(product => {
         const productElement = `
-            <div>
-              <p><strong>${product.name}</strong></p>
-              <p>${product.description}</p>
-              <p>$${product.price}</p>
-              <p>${product.stock} available</p>
-              <p><img src="/images/${product.image}" height="200" " width="300"></p>
-              <form class="mt-3" action="/addToCart" method="POST">
-                <label for="quantity-${product.name}">Quantity:</label>
-                <input type="number" id="quantity-${product.name}" name="quantity" value="1" min="1" max="${product.stock}">
-                <input type="hidden" name="productId" value="${product._id}">
-                <button type="submit">Add to Cart</button>
-              </form>
+          <div class="productContainer">
+            <p><img class="productImage" src="/images/${product.image}" alt="${product.name}"></p>
+            <p class="productName">${product.name}</p>
+            <p class="productDescription">${product.description}</p>
+            <p class="productPrice">$${product.price}</p>
+            <p class="productStock">${product.stock} available</p>
 
+<div class="inner-container">
+            <form class="quantity" action="/addToCart" method="POST">
+              <label for="quantity-${product.name}">Quantity:</label>
+              <input type="number" id="quantity-${product.name}" name="quantity" value="1" min="1" max="${product.stock}">
+              <input type="hidden" name="productId" value="${product._id}">
+              <button type="submit" class="addToCartButton">Add to Cart</button>
+            </form>
+
+</div>
+
+          </div>
         `;
+          
+          
+          
         container.innerHTML += productElement;
+          
+          if (min == 0 || product.price < min) {
+  min = product.price;
+}
+          if (max == 0 || product.price > max) {
+  max = product.price;
+}
       });
+        
+        
+
+        
+        priceSlider.noUiSlider.updateOptions({
+    range: {
+        'min': min,
+        'max': max
+    }
+});
+        
+        
     } else {
       console.error('Response not ok with status:', response.status);
     }
@@ -44,28 +80,83 @@ async function updateProducts() {
 }
 
 async function getCart() {
-
-try{
-  const response = await fetch('/api/cart', {
+  try {
+    const response = await fetch('/api/cart', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },
     });
-      
- if (response.ok) {
+
+    if (response.ok) {
       const cart = await response.json();
       const link = document.getElementById('cart');
       link.innerHTML = 'Cart (' + cart.totalQuantity + '):';
-     
- }
-    
-    
-} catch (error) {
+    }
+  } catch (error) {
     console.error('Fetch error:', error.message);
   }
 }
 
-
 updateProducts();
 getCart();
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.querySelector("button");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Function to close modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+
+var priceSlider = document.getElementById('priceSlider');
+
+noUiSlider.create(priceSlider, {
+    start: [0, 1000], // Initial values
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 1000
+    }
+});
+
+// Display initial values
+var minPriceDisplay = document.getElementById('minPriceDisplay');
+var maxPriceDisplay = document.getElementById('maxPriceDisplay');
+
+priceSlider.noUiSlider.on('update', function (values, handle) {
+    if (handle == 0) {
+        minPriceDisplay.innerHTML = "$" + values[0];
+    }
+    if (handle == 1) {
+        maxPriceDisplay.innerHTML = "$" + values[1];
+    }
+});
+
+// Function to filter products
+function filterByPrice() {
+    var range = priceSlider.noUiSlider.get();
+    var minPrice = parseFloat(range[0]);
+    var maxPrice = parseFloat(range[1]);
+
+    // Logic to filter products based on price
+    var products = document.getElementsByClassName("product");
+    for (var i = 0; i < products.length; i++) {
+        var productPrice = parseFloat(products[i].getAttribute("data-price"));
+        if (productPrice >= minPrice && productPrice <= maxPrice) {
+            products[i].style.display = "block";
+        } else {
+            products[i].style.display = "none";
+        }
+    }
+}

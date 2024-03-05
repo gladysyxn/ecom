@@ -3,21 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>ECommerce Checkpoint 1</title>
+  <link rel="stylesheet" href="/styles.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14/distribute/nouislider.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14/distribute/nouislider.min.css">
+    
+    
 </head>
-<body>
+<body class="index">
    <div>
-    <h2>Products</h2>   
+       
+<ul class="navbar">
+    <li><a id="cart" href="/cart">Cart</a></li>
+    <li><a href="/customer">Customer</a></li>
+</ul>
+       
+    <h2 class= "products"><strong>Products</strong></h2>   
     
     <input type="text" id="searchInput" name="searchInput" placeholder="Search by name...">
        
+    <button onclick="openModal()">Filter</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Filter Options</h2>
+            <form id="filterForm">
+                <label for="filterInput">Filter:</label>
+                <input type="text" id="filterInput" name="filterInput">
+                <button type="submit">Apply</button>
+            </form>
+            
+            <div id="priceSlider"></div> <div>Min Price: <span id="minPriceDisplay"></span></div> <div>Max Price: <span id="maxPriceDisplay"></span></div> <button onclick="filterByPrice()">Apply Filter</button>
+            
+            
+        </div>
+    </div>
        
-    <a id = "cart" href="/cart">Cart:</a> 
        
   </div>
   <div id="productsList">
     
   </div>
-  <p><a href="/logout">Log Out</a></p>
+<p><a href="/logout" class="logout-link">Log Out</a></p>
+
   <script src="/script.js"></script>
 </body>
 </html>

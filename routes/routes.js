@@ -16,7 +16,12 @@ router.post('/api/products', auth.isAuthenticated, ctrl.getProducts);
 router.post('/addToCart', auth.isAuthenticated, ctrl.addToCart);
 router.post('/updateCart', auth.isAuthenticated, ctrl.updateCart);
 router.get('/cart', auth.isAuthenticated, ctrl.viewCart);
-
 router.get('/api/cart', auth.isAuthenticated, ctrl.getCart);
+
+
+router.get('/clearCart', auth.isAuthenticated, ctrl.clearCart);
+router.post('/purchase', auth.isAuthenticated, ctrl.purchase);
+router.get('/customer', auth.isAuthenticated, ctrl.customer);
+
 
 export default router;

@@ -12,10 +12,15 @@ const CustomerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  purchases: [{
-    product: { type: Schema.Types.ObjectId, ref: 'Product' },
-    amount: { type: Number, required: true },
-  }],
+ purchases: {
+    items: [{
+      productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
+      quantity: { type: Number, required: true, min: 1 },
+      price: { type: Number, required: true },
+    }],
+    totalQuantity: { type: Number, default: 0 },
+    totalPrice: { type: Number, default: 0 },
+  },
   cart: {
     items: [{
       productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },

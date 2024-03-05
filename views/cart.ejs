@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>ECommerce Checkpoint 1</title>
+<link rel="stylesheet" href="/styles.css"> <!-- Add this line to link the style sheet -->
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 <body> 
     
+<ul class="navbar">
+    <li><a id="cart" href="/">Back to Product Catalog</a></li>
+    <li><a href="/customer">Customer</a></li>
+</ul>
+    
+    
   <div>
-    <h2><%= user.customername %> Shopping Cart</h2>
+    <h2 class="products"><%= user.customername %>Shopping Cart:</h2>
       
-      <a href="/">Back to Product Catalog</a>
       
       
     <% if (user.cart && user.cart.items && user.cart.items.length > 0) { %>
@@ -44,10 +53,26 @@
             </tr>
           </tbody>
         </table>
+          
+          
+        <div class="button-container">
+          <form action="/purchase" method="POST">
+            <input type="submit" value="Purchase">
+          </form>
+          <form action="/clearCart" method="GET">
+            <input type="submit" value="Empty Cart">
+          </form>
+
+
+        </div>
+
       </div>
     <% } else { %>
-      <p>Your cart is empty.</p>
+      <p class="empty">Your cart is empty.</p>
     <% } %>
+
+          
+          
   </div>
 </body>
     

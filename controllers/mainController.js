@@ -61,7 +61,7 @@ export const addToCart = async (req, res) => {
     await customer.save();
     const populatedCustomer = await Customer.findOne({ _id: userId })
                                             .populate('cart.items.productId');
-    res.render('cart', {user: populatedCustomer});
+    res.render('index', {user: populatedCustomer});
   } catch (error) {
     console.error(error);
     res.status(500).send('An error occurred');
@@ -143,6 +143,59 @@ export const getCart = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+export const clearCart = async (req, res) => {
+  try {
+    const customer = await Customer.findOne({ _id: req.user });
+    customer.cart = { items: [], totalQuantity: 0, totalPrice: 0 };
+    customer.save();
+    res.redirect('/cart');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('An error occurred');
+  }
+}
+
+ export const purchase = async (req, res) => {
+  try {
+    const customer = await Customer.findOne({ _id: req.user }).populate('cart.items.productId');
+
+    const cartItems = customer.cart.items;
+
+    cartItems.forEach(cartItem => {
+      const { productId, quantity, price } = cartItem; 
+      
+      const itemIndex = customer.purchases.items.findIndex(purchaseItem => purchaseItem.productId.toString() === productId.toString());
+
+      if (itemIndex > -1) {
+        customer.purchases.items[itemIndex].quantity += quantity;
+        customer.purchases.items[itemIndex].price = price;
+      } else {
+        customer.purchases.items.push({ productId: productId, quantity: quantity, price: price });
+      }
+      
+      customer.purchases.totalQuantity += quantity;
+      customer.purchases.totalPrice += price * quantity;
+    });
+
+    await customer.save();
+    res.redirect('/clearCart'); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('An error occurred');
+  }
+};
+
+export const customer = async (req, res) => {
+  try {
+    const customer = await Customer.findOne({ _id: req.user }).populate('purchases.items.productId');
+
+    res.render('customer', {user: customer}); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('An error occurred');
+  }
+}
     
     
     

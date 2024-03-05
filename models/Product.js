@@ -7,13 +7,30 @@ const ProductSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  description: String,
-  price: Number,
+  description: {
+    type: String,
+    required: true
+  },
+  image: String,
+  price: {
+    type: Number,
+    required: true
+  },
   currentPrice: Number,
-  stock: Number,
+  stock: {
+    type: Number,
+    required: true,
+    default: 0
+  },
+  category: String,
+  price: {
+    type: Number,
+    required: true
+  },
   sales: [{ 
     customer: { type: Schema.Types.ObjectId, ref: 'Customer' },
-    amount: { type: Number}
+    date: { type: Date },
+    amount: { type: Number},
   }]
 });
 
