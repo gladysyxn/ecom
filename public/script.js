@@ -30,7 +30,9 @@ async function updateProducts() {
         const productElement = `
           <div class="productContainer">
             <p><img class="productImage" src="/images/${product.image}" alt="${product.name}"></p>
-            <p class="productName">${product.name}</p>
+            <a href="/info/${product._id}" class="productName">${product.name}</a>
+
+
             <p class="productDescription">${product.description}</p>
             <p class="productPrice">$${product.price}</p>
             <p class="productStock">${product.stock} available</p>

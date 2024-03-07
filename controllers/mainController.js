@@ -197,5 +197,22 @@ export const customer = async (req, res) => {
   }
 }
     
+
+export const info = async (req, res) => {
+  try {
+    const productId = req.params.id;
+      console.log(productId);
+    const product = await Product.findById(productId);
     
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+
+    // You can retrieve any other product-related details here
     
+    res.render('info', { product});
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error processing request');
+  }
+};

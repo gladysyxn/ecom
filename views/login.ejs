@@ -2,10 +2,14 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
-<body>
-  <h1>Log In</h1>
-  <form action="/login" method="POST">
+<body class="login2">
+    <h1 class="login"><strong>Log In</strong></h1>
+    
+  <form class="login-form"action="/login" method="POST">
     <div>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" required>
@@ -16,6 +20,6 @@
     </div>
     <button type="submit">Login</button>
   </form>
-  <p>Don't have an account? <a href="/register">Register here</a></p>
+  <p class="acc">Don't have an account? <a href="/register">Register here</a></p>
 </body>
 </html>

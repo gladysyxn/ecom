@@ -20,11 +20,11 @@
     <li><a href="/customer">Customer</a></li>
 </ul>
        
-    <h2 class= "products"><strong>Products</strong></h2>   
+    <h2 class= "products">Products</h2>   
     
     <input type="text" id="searchInput" name="searchInput" placeholder="Search by name...">
        
-    <button onclick="openModal()">Filter</button>
+    <button class="filter"onclick="openModal()">Filter</button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -33,10 +33,14 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Filter Options</h2>
             <form id="filterForm">
-                <label for="filterInput">Filter:</label>
-                <input type="text" id="filterInput" name="filterInput">
-                <button type="submit">Apply</button>
+                <label for="filterSelect">Filter:</label>
+                <select id="filterSelect" name="filterSelect">
+                    <option value="option1">Toys</option>
+                    <option value="option2">Furniture</option>
+                </select>
+                <button class="filt-sub"type="submit">Apply</button>
             </form>
+
             
             <div id="priceSlider"></div> <div>Min Price: <span id="minPriceDisplay"></span></div> <div>Max Price: <span id="maxPriceDisplay"></span></div> <button onclick="filterByPrice()">Apply Filter</button>
             

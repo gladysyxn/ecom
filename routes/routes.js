@@ -22,6 +22,6 @@ router.get('/api/cart', auth.isAuthenticated, ctrl.getCart);
 router.get('/clearCart', auth.isAuthenticated, ctrl.clearCart);
 router.post('/purchase', auth.isAuthenticated, ctrl.purchase);
 router.get('/customer', auth.isAuthenticated, ctrl.customer);
-
+router.get('/info/:id', auth.isAuthenticated, ctrl.info);
 
 export default router;

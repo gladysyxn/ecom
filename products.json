@@ -10,7 +10,7 @@
   },
   {
       "name": "Toy Mouse",
-      "description": "Bring out the hunter in your cat with our toy mouse! Explore a variety of playful mice designed to stimulate your cat's natural instincts and provide hours of entertainment. With lifelike designs and interactive features, these toys are sure to captivate your furry friend's attention. Don't miss this opportunity to add excitement to your cat's playtime – shop now and watch them pounce and play!",
+      "description": "Ignite your cat's inner hunter with our toy mouse! Featuring lifelike designs and interactive features, these toys provide hours of entertainment. Shop now and watch your furry friend pounce and play!",
       "price": 10,
       "currentPrice": 10,
       "stock": 50,
@@ -19,7 +19,7 @@
   },
   {
       "name": "Cat Tree",
-      "description": "Give your feline friend the ultimate playground with our cat tree! From cozy perches to satisfying scratching posts, find the purrfect tree to keep your kitty entertained and happy. Don't miss out on these paws-itively great deals – shop now and treat your cat to endless fun and relaxation!",
+      "description": "Treat your cat to the ultimate playground with our cat tree! Featuring cozy perches and satisfying scratching posts, it's the purrfect way to keep your kitty happy.",
       "price": 100,
       "currentPrice": 100,
       "stock": 10,
@@ -29,7 +29,7 @@
   },
   {
     "name": "Fish Toy",
-    "description": "Introduce your feline friend to a world of aquatic adventure with our fish toy for cats! Crafted with lifelike designs and tantalizing textures, these fish toys are sure to reel in your kitty's curiosity. Watch as they pounce, bat, and chase after their new underwater friend, providing hours of entertainment and mental stimulation. Treat your cat to the thrill of the hunt – dive into our fish toy sale today!",
+    "description": "Dive into aquatic fun with our fish toy for cats! Lifelike designs and tempting textures keep your kitty entertained for hours. Watch them pounce and chase their new underwater friend. Shop now for endless playtime!",
     "price": 100,
     "stock": 45,
     "image": "fish_toy.png",
@@ -38,10 +38,20 @@
   {
     "name": "Neon Worm",
     "description":     
-      "Light up playtime for your furry companion with our neon worms for cats! These vibrant, glowing toys are designed to captivate your cat's attention and ignite their natural instincts for hunting and exploration. With their irresistible colors and wriggling movements, these neon worms will keep your cat entertained for hours on end. Watch as they chase, pounce, and bat at these glowing critters, providing endless fun and excitement. Bring a dash of neon magic to your cat's playtime – shop our neon worm collection now!",
+      "Spark excitement in your cat with our neon worms! These vibrant, glowing toys awaken hunting instincts and offer endless play. Watch as your cat pounces and bats at these mesmerizing critters. Get yours now!",
     "price": 10,
     "stock": 30,
     "image": "neon_worms.png",
     "category": "toy"
+  },
+      {
+      "name": "Cat Bed",
+      "description": "Indulge your feline friend with our Deluxe Plush Cat Bed! Ultra-soft faux fur lining, supportive design, and easy maintenance make it the perfect cozy retreat. Give your cat the comfort they crave!",
+      "price": 75,
+      "currentPrice": 75,
+      "stock": 25,
+      "image": "cat_bed.png",
+      "category": "furniture"
+      
   }
 ]

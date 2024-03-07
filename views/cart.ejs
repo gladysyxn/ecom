@@ -8,16 +8,16 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
 </head>
-<body> 
+<body class="ct"> 
     
 <ul class="navbar">
-    <li><a id="cart" href="/">Back to Product Catalog</a></li>
+    <li><a id="cart" href="/">Store</a></li>
     <li><a href="/customer">Customer</a></li>
 </ul>
     
     
   <div>
-    <h2 class="products"><%= user.customername %>Shopping Cart:</h2>
+    <h2 class="cart-prof"><%= user.customername %>Shopping Cart:</h2>
       
       
       
@@ -41,7 +41,7 @@
     <form action="/updateCart" method="POST">
       <input type="hidden" name="productId" value="<%= item.productId._id %>">
       <input type="number" name="quantity" min="1" max="<%= item.productId.stock %>" value="<%= item.quantity %>" >
-      <button type="submit">Update</button>
+      <button class="upd"type="submit">Update</button>
     </form>
   </td>
               <td>$<%= (item.price * item.quantity).toFixed(2) %></td>

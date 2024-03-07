@@ -1,27 +1,33 @@
 /* styles.css */
-
-
-body{
-    font-family: Arial, sans-serif; /* Example font family */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+body{       
+        
+    font-family:  "Titillium Web", sans-serif; /* Example font family */
     background-color: #f0f0f0; /* Example background color */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     margin-top: 60px;
 }
+
+.cus, .ct{
+    background-color: #f0f0f0;
+}
+
 .container {
     padding-top: 40px; /* Adjust this value according to the height of your navbar */
 }
 
 .navbar {
+    display: block !important;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
     overflow: hidden;
     background-color: #333;
     position: fixed;
     top: 0;
     width: 100%;
-    display: block;
+
 }
 
 .navbar li {
@@ -39,6 +45,8 @@ body{
 .navbar li a:hover {
     background-color: #555;
 }
+
+
 
 /* Apply styles to the products list */
 #productsList {
@@ -88,27 +96,49 @@ product.name{
 }
 
 .products{
-    margin: 10px; /* Add margin to the left of the h2 element */
-    font-size: 30px;
+    margin: 75px 20px 20px 20px; /* Add margin to the left of the h2 element */
+    font-size: 40px;
+    font-family:  "Titillium Web", sans-serif;
+    font-weight: bold;
+    
 }
 
+.cart-prof{
+    margin: 10px 20px 20px 20px; /* Add margin to the left of the h2 element */
+    font-size: 40px;
+    font-family:  "Titillium Web", sans-serif;
+    font-weight: bold;
+    
+}
 
 .productContainer {
-    border: 1px solid #ccc;
-    width:30vw;
-    padding:20px;
-    margin-top:20px;
+    border: 1px solid #bdbdbd;
+    width: 30vw;
+    padding: 20px;
+    margin: 20px;
+}
+
+.productContainer:hover {
+    border-color: #d93450; /* Change border color on hover */
+    background-color: rgba(255, 179, 192, 0.2);
+    transform:scale(1.05);
 }
 
 .productName {
     margin: 1vw;
     font-weight: bold;
     font-size: 30px;
+    color: #dc3545;
+}
+
+.productName:hover{
+    color: #ff4f4f; /* Change color on hover */
+    text-decoration:none; /* Add underline on hover */
+    cursor: pointer; 
 }
 
 .productDescription {
     margin: 1vw;
-    margin-top: -10px;
     font-size: 16px;
 }
 
@@ -125,13 +155,17 @@ product.name{
     margin-top: -10px;
 }
 
+
 .productImage {
-    width: 100%; /* Ensure all images fill the entire width of their container */
-    height: auto; /* Automatically adjust the height while maintaining aspect ratio */
-    max-width: 30vw; /* Set the maximum width for the images */
-    max-height: 30vw; /* Set the maximum height for the images */
-    display: block; /* Ensure images are displayed as block elements for centering */
+    width: 100%; 
+    height: auto; 
+    max-width: 30vw; 
+    max-height: 30vw; 
+    display: block; 
 }
+
+
+
 
 a.logout-link {
   text-decoration: none; /* Remove underline */
@@ -142,47 +176,129 @@ a.logout-link {
 
 a.logout-link:hover {
   color: #c82333; /* Darker shade of red on hover */
+} 
+
+
+
+.filter{
+    color: #494949 !important;
+    text-decoration: none;
+    background: #ffffff;
+    border: 3px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    padding: 4px 10px 4px 10px;
+    border-radius: 4px;
 }
 
+.filter:hover {
+    color: #ffffff !important;
+    background: #ffbdbd;
+    border-color: #ffbdbd !important;
+    transition: all 0.4s ease 0s;
+}
+
+
+.upd {
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff8c8c; /* Red color */
+  color: #fff; /* White text color */
+  transition: background-color 0.3s;
+  border: 1px solid #494949 !important;
+  margin-left: 10px;
+
+}
+
+.upd:hover {
+background-color: #ffbdbd;
+    border: none !important;
+}
 
 
 /*check out css*/
 
+.tablecontainer{
+    padding: 20px;
+}
+
+
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 table, th, td {
-  border: 1px solid #ddd;
+    font-family:  "Titillium Web", sans-serif;
+    border: 1px solid #ddd;
 }
 
 th, td {
-  padding: 8px;
-  text-align: left;
+    padding: 8px;
+    text-align: left;
 }
 
 th {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+tr:1 {
+    background-color: #f2f2f2;
 }
 
 tr:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 a {
-  text-decoration: none;
-  color: blue;
+    text-decoration: none;
+    color: blue;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
+
+
+
+
+
+
+/* styles.css */
+
+.tble2 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tble2, .tble2 th, .tble2 td {
+    border: 1px solid #ddd;
+}
+
+.tble2 th, .tble2 td {
+    padding: 8px;
+    text-align: left;
+}
+
+.tble2 th {
+    background-color: #f2f2f2;
+}
+
+
+.tble2 tr:hover {
+    background-color: #ddd;
+}
+
+
+
+
+
 
 /* styles.css */
 
@@ -240,10 +356,9 @@ background-color: #ffbdbd;
 
 
 p.empty {
-  margin-top: 20px; /* Adjust as needed */
   font-size: 16px;
   color: #555; /* Dark gray text color */
-  margin-left: 10px;
+  margin-left: 40px;
 }
 
 h4{
@@ -268,14 +383,17 @@ h4{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding: 20px;
+    
 }
 
-/* Modal Content */
+
+/* Modal Content */x
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 2px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
@@ -309,5 +427,85 @@ h4{
     top: -5px;
     right: -9px; /* half the width */
     border-radius: 9px;
+}
+
+
+.filt-sub{
+    margin: 20px;
+}
+
+
+
+/* login page*/
+
+.login {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-family:  "Titillium Web", sans-serif;
+}
+
+.login-form {
+  width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form div {
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family:  "Titillium Web", sans-serif;
+}
+
+.login-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff8c8c;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family:  "Titillium Web", sans-serif;
+}
+
+.login-form button[type="submit"]:hover {
+  background-color: #ffbdbd;
+  font-family:  "Titillium Web", sans-serif;
+}
+
+.acc {
+  text-align: center;
+  margin-top: 20px;
+ font-family:  "Titillium Web", sans-serif;
+}
+
+.acc a {
+  color: #007bff;
+  text-decoration: none;
+  font-family:  "Titillium Web", sans-serif;
+}
+
+.acc a:hover {
+  text-decoration: underline;
+}
+
+h4{
+    font-family:  "Titillium Web", sans-serif;
 }
 
