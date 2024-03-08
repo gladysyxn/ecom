@@ -3,22 +3,25 @@ const linkElement = document.createElement('link');
 linkElement.rel = 'stylesheet';
 linkElement.href = 'styles.css';
 document.head.appendChild(linkElement);
+document.getElementById('searchInput').addEventListener('input', updateProducts);
+
 
 //priceValue
-async function updateProducts() {
+async function updateProducts(filters) {
   try {
     const name = document.getElementById('searchInput').value;
-
+        filters.name = name;
     const response = await fetch('/api/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name }),
+      body: JSON.stringify(filters),
     });
 
     if (response.ok) {
-      const products = await response.json();
+      const result = await response.json();
+      const products = result.products;
       const container = document.getElementById('productsList');
       container.innerHTML = '';
         
@@ -69,8 +72,12 @@ async function updateProducts() {
     range: {
         'min': min,
         'max': max
-    }
-});
+    }    
+        });
+        
+        
+                    
+populateCategorySelect(result.categories);
         
         
     } else {
@@ -93,14 +100,14 @@ async function getCart() {
     if (response.ok) {
       const cart = await response.json();
       const link = document.getElementById('cart');
-      link.innerHTML = 'Cart (' + cart.totalQuantity + '):';
+      link.innerHTML = 'Cart (' + cart.totalQuantity + ')';
     }
   } catch (error) {
     console.error('Fetch error:', error.message);
   }
 }
 
-updateProducts();
+updateProducts({});
 getCart();
 
 // Get the modal
@@ -151,14 +158,45 @@ function filterByPrice() {
     var minPrice = parseFloat(range[0]);
     var maxPrice = parseFloat(range[1]);
 
-    // Logic to filter products based on price
-    var products = document.getElementsByClassName("product");
-    for (var i = 0; i < products.length; i++) {
-        var productPrice = parseFloat(products[i].getAttribute("data-price"));
-        if (productPrice >= minPrice && productPrice <= maxPrice) {
-            products[i].style.display = "block";
-        } else {
-            products[i].style.display = "none";
-        }
-    }
+    updateProducts({minPrice, maxPrice});
+// Logic to filter products based on price
+//    var products = document.getElementsByClassName("product");
+//    for (var i = 0; i < products.length; i++) {
+//        var productPrice = parseFloat(products[i].getAttribute("data-price"));
+//        if (productPrice >= minPrice && productPrice <= maxPrice) {
+//            products[i].style.display = "block";
+//        } else {
+//            products[i].style.display = "none";
+//        }
+//    }
 }
+
+
+function populateCategorySelect(options) {
+  const select = document.getElementById("categorySelect");
+
+  // Clear existing options
+  select.innerHTML = '';
+
+  // Create and append new options
+    
+    
+  options.unshift('');
+  options.forEach(option => {
+      
+      
+    const optionElement = document.createElement("option");
+    optionElement.textContent = option;
+    optionElement.value = option; // If you want the value to be different, set it here
+    select.appendChild(optionElement);
+  });
+}
+
+
+function filterByCategory(){
+    const select = document.getElementById("categorySelect");
+    const category = select.value;
+    
+    updateProducts({category});
+}
+

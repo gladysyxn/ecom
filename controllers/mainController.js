@@ -6,16 +6,24 @@ export const home = async (req, res) => {
 };
 
 export const getProducts = async (req, res) => {
-  const { name } = req.body;
+  const { name, minPrice, maxPrice, category } = req.body;
   let query = {};
 
   if (name) {
     query.name = { $regex: name, $options: 'i' }; // Case-insensitive search
   }
-
-  try {
+   if (minPrice && maxPrice) 
+query.price = { $gte: minPrice, $lte: maxPrice } ;
+  console.log(query);
+    if (category){
+        query.category = { $regex: category, $options: 'i' };
+    }
+    
+    try {
     const products = await Product.find(query).sort({price: -1});
-    res.json(products); // Send back JSON response
+    console.log(products);
+    const categories = await Product.distinct('category').sort();   
+    res.json({products, categories});
   } catch (error) {
     console.error('Error fetching products:', error);
     res.status(500).send(error);
@@ -207,6 +215,8 @@ export const info = async (req, res) => {
     if (!product) {
       return res.status(404).send('Product not found');
     }
+
+    console.log(product);
 
     // You can retrieve any other product-related details here
     

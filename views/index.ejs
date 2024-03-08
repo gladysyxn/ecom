@@ -32,15 +32,12 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Filter Options</h2>
-            <form id="filterForm">
+            
                 <label for="filterSelect">Filter:</label>
-                <select id="filterSelect" name="filterSelect">
-                    <option value="option1">Toys</option>
-                    <option value="option2">Furniture</option>
+                <select id="categorySelect" name="filterSelect">
+                    
                 </select>
-                <button class="filt-sub"type="submit">Apply</button>
-            </form>
-
+                <button class="filt-sub" onclick="filterByCategory()">Apply</button>
             
             <div id="priceSlider"></div> <div>Min Price: <span id="minPriceDisplay"></span></div> <div>Max Price: <span id="maxPriceDisplay"></span></div> <button onclick="filterByPrice()">Apply Filter</button>
             

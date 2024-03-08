@@ -103,6 +103,27 @@ product.name{
     
 }
 
+.inner-container {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+
+}
+
+.quantity{
+    padding: 0px 0px; 
+    margin-left: 1vw;
+}.productStock {
+    margin: 1vw;
+    font-size: 12px;
+    margin-top: -10px;
+    padding-bottom: 20px;
+}
+.quantity{
+    padding: 0px 0px; 
+    margin-left: 1vw;
+}
+
 .cart-prof{
     margin: 10px 20px 20px 20px; /* Add margin to the left of the h2 element */
     font-size: 40px;
@@ -116,6 +137,7 @@ product.name{
     width: 30vw;
     padding: 20px;
     margin: 20px;
+    position: relative;
 }
 
 .productContainer:hover {
@@ -153,6 +175,7 @@ product.name{
     margin: 1vw;
     font-size: 12px;
     margin-top: -10px;
+    padding-bottom: 25px;
 }
 
 
@@ -392,10 +415,10 @@ h4{
 /* Modal Content */x
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 2px;
+    margin: 30% auto; /* 15% from the top and centered */
+    padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* Close Button */
@@ -444,14 +467,23 @@ h4{
   margin-bottom: 20px;
   font-family:  "Titillium Web", sans-serif;
 }
+.login:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the values as needed */
+}
+
 
 .login-form {
   width: 500px;
   margin: 0 auto;
-  background-color: #fff;
+ background-color: rgba(255, 255, 255,0.3);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form:hover{
+    background-color: rgba(255, 255, 255,0.5);
 }
 
 .login-form div {
@@ -508,4 +540,61 @@ h4{
 h4{
     font-family:  "Titillium Web", sans-serif;
 }
+
+
+.login2{
+    background-image: url('images/cat.png');
+    background-size: cover;
+}
+
+
+
+/*info page*/
+
+.con {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-name {
+    font-weight: bold; /* Set font weight to bold */
+    font-size: 3vw; /* Set font size to 24 pixels */
+    margin: 10px auto; /* Add margin to the top and bottom and auto for left and right to center horizontally */
+    text-align: center; /* Center the text horizontally */
+}
+
+
+.info-descrip {
+    font-size: 16px;
+    margin: 10px;
+}
+
+.info-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.info-stock {
+    font-size: 14px;
+    color: #666;
+    margin: 10px;
+}
+
+.info-image {
+    display: block; /* Ensure the image behaves as a block element */
+    width: 50%; /* Make the image fill 75% of its container */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image horizontally */
+    margin-bottom: 10px; /* Add space below the image */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+
+
+
 
