@@ -164,7 +164,7 @@ export const clearCart = async (req, res) => {
   }
 }
 
- export const purchase = async (req, res) => {
+export const purchase = async (req, res) => {
   try {
     const customer = await Customer.findOne({ _id: req.user }).populate('cart.items.productId');
 
@@ -173,8 +173,8 @@ export const clearCart = async (req, res) => {
     cartItems.forEach(cartItem => {
       const { productId, quantity, price } = cartItem; 
       
-      const itemIndex = customer.purchases.items.findIndex(purchaseItem => purchaseItem.productId.toString() === productId.toString());
-
+      const itemIndex = customer.purchases.items.findIndex(purchaseItem =>  purchaseItem.productId._id.toString() === productId._id.toString());
+      
       if (itemIndex > -1) {
         customer.purchases.items[itemIndex].quantity += quantity;
         customer.purchases.items[itemIndex].price = price;
@@ -192,8 +192,7 @@ export const clearCart = async (req, res) => {
     console.error(error);
     res.status(500).send('An error occurred');
   }
-};
-
+};3
 export const customer = async (req, res) => {
   try {
     const customer = await Customer.findOne({ _id: req.user }).populate('purchases.items.productId');
