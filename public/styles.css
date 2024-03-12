@@ -396,7 +396,6 @@ h4{
 
 
 
-/* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -412,13 +411,13 @@ h4{
 }
 
 
-/* Modal Content */x
-.modal-content {
+/* Modal Content */
+.modalcontent {
     background-color: #fefefe;
-    margin: 30% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 20% auto; /* 15% from the top and centered */
+    padding: 15px;
     border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
 }
 
 /* Close Button */
@@ -453,9 +452,6 @@ h4{
 }
 
 
-.filt-sub{
-    margin: 20px;
-}
 
 
 
@@ -566,27 +562,29 @@ h4{
     text-align: center; /* Center the text horizontally */
 }
 
-
+.inf{
+    margin: 5vw;
+}
 .info-descrip {
-    font-size: 16px;
+    font-size: 1.5vw;
     margin: 10px;
 }
 
 .info-price {
-    font-size: 16px;
+    font-size: 1.5vw;
     font-weight: bold;
     margin: 10px;
 }
 
 .info-stock {
-    font-size: 14px;
+    font-size: 1.2vw;
     color: #666;
     margin: 10px;
 }
 
 .info-image {
     display: block; /* Ensure the image behaves as a block element */
-    width: 50%; /* Make the image fill 75% of its container */
+    width: 40%; /* Make the image fill 75% of its container */
     height: auto; /* Maintain aspect ratio */
     margin: 0 auto; /* Center the image horizontally */
     margin-bottom: 10px; /* Add space below the image */
@@ -594,7 +592,70 @@ h4{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
+.recs {
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+}
 
 
+.scrollable {
+  display: inline-block;
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
+}
 
+.rec {
+  width: 150px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.rec-image-container {
+  display: inline-block;
+}
+
+.rec-image-container img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px; /* Add border radius */
+}
+
+.relTitle {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 2vw;
+  text-align: left;
+}
+      
+
+.save {
+  display: inline-block;
+  padding: 3px 15px;
+  background-color: #8585ad; /* Blue color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  margin-right: 10px; /* Add some spacing between buttons */
+  font-family: "Titillium Web", sans-serif;
+  margin-top: 15px;
+}
+      
+.save:hover {
+  background-color: #5c5c8a; /* Darker blue color on hover */
+}  
+
+.rec-container {
+  margin: 20px auto;
+  padding: 50px 50px 25px 50px;
+  background-color: lightgray;
+}
+      
 

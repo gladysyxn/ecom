@@ -170,6 +170,12 @@ export const purchase = async (req, res) => {
 
     const cartItems = customer.cart.items;
 
+    let quantities = {};
+      
+      
+      
+      
+      
     cartItems.forEach(cartItem => {
       const { productId, quantity, price } = cartItem; 
       
@@ -181,18 +187,29 @@ export const purchase = async (req, res) => {
       } else {
         customer.purchases.items.push({ productId: productId, quantity: quantity, price: price });
       }
-      
+      quantities[productId._id] = quantity;
       customer.purchases.totalQuantity += quantity;
       customer.purchases.totalPrice += price * quantity;
     });
 
     await customer.save();
+
+      for (const productId of Object.keys(quantities)) {
+      const product = await Product.findById(productId); 
+                    
+      product.stock -= quantities[productId];
+      product.save();
+
+    }
+      
     res.redirect('/clearCart'); 
   } catch (error) {
     console.error(error);
     res.status(500).send('An error occurred');
   }
 };3
+
+
 export const customer = async (req, res) => {
   try {
     const customer = await Customer.findOne({ _id: req.user }).populate('purchases.items.productId');
@@ -208,6 +225,8 @@ export const customer = async (req, res) => {
 export const info = async (req, res) => {
   try {
     const productId = req.params.id;
+      
+      
       console.log(productId);
     const product = await Product.findById(productId);
     
@@ -216,10 +235,16 @@ export const info = async (req, res) => {
     }
 
     console.log(product);
-
+    
+    const recom = await Product.find({
+      $and: [
+        { category: product.category },
+        { _id: { $ne: product._id } }
+      ]
+    }).sort({price: -1});
     // You can retrieve any other product-related details here
     
-    res.render('info', { product});
+    res.render('info', { product, recom});
   } catch (error) {
     console.error(error);
     res.status(500).send('Error processing request');

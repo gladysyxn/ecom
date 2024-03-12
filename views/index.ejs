@@ -29,7 +29,7 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modalcontent">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Filter Options</h2>
             
@@ -37,9 +37,9 @@
                 <select id="categorySelect" name="filterSelect">
                     
                 </select>
-                <button class="filt-sub" onclick="filterByCategory()">Apply</button>
+                <button class="addToCartButton" onclick="filterByCategory()">Apply</button>
             
-            <div id="priceSlider"></div> <div>Min Price: <span id="minPriceDisplay"></span></div> <div>Max Price: <span id="maxPriceDisplay"></span></div> <button onclick="filterByPrice()">Apply Filter</button>
+            <div id="priceSlider"></div> <div>Min Price: <span id="minPriceDisplay"></span></div> <div>Max Price: <span id="maxPriceDisplay"></span></div> <button class="addToCartButton" onclick="filterByPrice()">Apply Filter</button>
             
             
         </div>

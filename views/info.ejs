@@ -24,11 +24,13 @@
             <p class="info-name"><%=product.name%></p>
             <p><img class="info-image" src="/images/<%=product.image%>" alt="<%=product.name%>"></p>
 
-
+            <div class="inf">
 
             <p class="info-descrip"><%=product.description%></p>
-            <p class="info-price"><%=product.price%></p>
+            <p class="info-price">$<%=product.price%></p>
             <p class="info-stock"><%=product.stock%> available</p>
+    
+
 
         <div class="quant-inner">
             <form class="quantity" action="/addToCart" method="POST">
@@ -37,9 +39,48 @@
               <input type="hidden" name="productId" value="<%=product._id%>">
               <button type="submit" class="addToCartButton">Add to Cart</button>
             </form>
-
+        </div>
         </div>
 
         </div>
+    
+    
+<div class="recs">
+    <div class="rec-container">
+    <div class="scrollable">
+        <p class="relTitle">Recommended Products:</p>
+        
+        <div class="rec-image-container">
+        <% recom.forEach(product => { %>
+            <p class="info-name"><%=product.name%></p>
+            <p><img class="movie-image" src="/images/<%=product.image%>" alt="<%=product.name%>"></p>
+
+            <div class="sub1">
+            <p class="info-price">$<%=product.price%></p>
+            <p class="info-stock"><%=product.stock%> available</p>
+                
+                
+            <div class="sub">
+            <form class="quantity" action="/addToCart" method="POST">
+              <label>Quantity:</label>
+              <input type="number" name="quantity" value="1" min="1" max="<%=product.stock%>">
+              <input type="hidden" name="productId" value="<%=product._id%>">
+              <button type="submit" class="addToCartButton">Add to Cart</button>
+            </form>
+             
+                </div>
+          <% }); %>      
+            </div>
+            </div>
+            </div>
+    
+    
+    
+    </div>
+</div>
+    
+    
+    
+    
 </body>
 </html>
