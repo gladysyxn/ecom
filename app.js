@@ -5,6 +5,7 @@ import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import bcrypt from 'bcrypt';
 import configurePassport from './config/passport.js';
+import flash from 'connect-flash';
 
 import Customer from './models/Customer.js';
 import Product from './models/Product.js';
@@ -28,7 +29,14 @@ app.use(session({
   saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
 }));
+// Connect-flash setup
+app.use(flash());
 
+// Middleware to make flash messages available to all views
+app.use((req, res, next) => {
+    res.locals.flashMessages = req.flash();
+    next();
+});
 // Passport initialization
 app.use(passport.initialize());
 app.use(passport.session());

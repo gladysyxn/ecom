@@ -8,7 +8,7 @@ export const login = (req, res) => {
 export const verifyLogin = 
   passport.authenticate('local', { successRedirect: '/',
                                    failureRedirect: '/login',
-                                   failureFlash: false });
+                                   failureFlash: true });
 
 export const register = (req, res) => {
   res.render('register');
@@ -21,7 +21,10 @@ export const verifyRegister = async (req, res) => {
     await user.save();
     res.redirect('/login');
   } catch (error) {
-    res.send(error.message);
+      
+    req.flash('warning', "User name has been taken." );  
+    //res.send(error.message);
+      res.redirect('/register');
   }
 };
 

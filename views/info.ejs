@@ -50,14 +50,17 @@
     <div class="scrollable">
         <p class="relTitle">Recommended Products:</p>
         
-        <div class="rec-image-container">
+
         <% recom.forEach(product => { %>
-            <p class="info-name"><%=product.name%></p>
+            <div class="rec-image-container">
+            <p><strong><%=product.name%></strong></p>
+
             <p><img class="movie-image" src="/images/<%=product.image%>" alt="<%=product.name%>"></p>
 
+
             <div class="sub1">
-            <p class="info-price">$<%=product.price%></p>
-            <p class="info-stock"><%=product.stock%> available</p>
+            <p class="rec-price">$<%=product.price%></p>
+            <p class="rec-stock"><%=product.stock%> available</p>
                 
                 
             <div class="sub">
@@ -68,17 +71,19 @@
               <button type="submit" class="addToCartButton">Add to Cart</button>
             </form>
              
-                </div>
+            </div>
+            </div>
+            </div>
           <% }); %>      
-            </div>
-            </div>
-            </div>
-    
-    
-    
-    </div>
+
+        </div>
+        </div>
+
+
 </div>
     
+    
+
     
     
     

@@ -593,9 +593,8 @@ h4{
 }
 
 .recs {
-  text-align: center;
-  margin-top: 50px;
   position: relative;
+    margin-bottom: 50px;
 }
 
 
@@ -614,12 +613,16 @@ h4{
 
 .rec-image-container {
   display: inline-block;
+  padding-right: 50px;
+    margin-left: 50px
+
 }
 
 .rec-image-container img {
-  width: 100px;
+  width: 150px;
   height: auto;
   border-radius: 8px; /* Add border radius */
+
 }
 
 .relTitle {
@@ -627,35 +630,30 @@ h4{
   top: 0;
   left: 0;
   margin-bottom: 30px;
-  color: white;
-  font-size: 2vw;
+  font-size: 20px;
   text-align: left;
+  margin-left: 50px;
 }
       
 
-.save {
-  display: inline-block;
-  padding: 3px 15px;
-  background-color: #8585ad; /* Blue color */
-  color: #fff; /* White text color */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 13px;
-  margin-right: 10px; /* Add some spacing between buttons */
-  font-family: "Titillium Web", sans-serif;
-  margin-top: 15px;
-}
-      
-.save:hover {
-  background-color: #5c5c8a; /* Darker blue color on hover */
-}  
 
 .rec-container {
-  margin: 20px auto;
-  padding: 50px 50px 25px 50px;
+    padding-top: 20px;
   background-color: lightgray;
 }
+
+
+.rec-price {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.rec-stock {
+    font-size: 13px;
+    color: #666;
+    margin: 10px;
+}
+
       
 

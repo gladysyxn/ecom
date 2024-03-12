@@ -7,6 +7,17 @@
     
 </head>
 <body class="login2">
+    <% if (flashMessages.info) { %>
+    <div class="alert alert-info" id = "info-alert">
+      <%= flashMessages.info %>
+    </div>
+  <% } %>
+    
+    <% if (flashMessages.warning) { %>
+    <div class="alert alert-info" id = "info-alert">
+      <%= flashMessages.warning %>
+    </div>
+  <% } %>
     <h1 class="login"><strong>Log In</strong></h1>
     
   <form class="login-form"action="/login" method="POST">
@@ -21,5 +32,9 @@
     <button type="submit">Login</button>
   </form>
   <p class="acc">Don't have an account? <a href="/register">Register here</a></p>
+    
+    
+    
+    
 </body>
 </html>
