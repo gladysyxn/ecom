@@ -13,6 +13,15 @@
     </div>
   <% } %>
     
+    
+    
+    <% if (flashMessages.error) { %>
+    <div class="alert alert-danger" id = "info-alert">
+      <%= flashMessages.error %>
+    </div>
+  <% } %>
+    
+    
     <% if (flashMessages.warning) { %>
     <div class="alert alert-info" id = "info-alert">
       <%= flashMessages.warning %>

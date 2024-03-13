@@ -10,6 +10,15 @@
 </head>
 <body class="ct"> 
     
+<% if (flashMessages.info) { %>
+    <div class="alert alert-info" id = "info-alert">
+      <%= flashMessages.info %>
+    </div>
+  <% } %>
+    
+    
+    
+    
 <ul class="navbar">
     <li><a id="cart" href="/">Store</a></li>
     <li><a href="/customer">Customer</a></li>

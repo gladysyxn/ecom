@@ -202,6 +202,8 @@ export const purchase = async (req, res) => {
 
     }
       
+    req.flash('info', "Your order has been placed." );
+      
     res.redirect('/clearCart'); 
   } catch (error) {
     console.error(error);
